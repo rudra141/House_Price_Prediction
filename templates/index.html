@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House Price Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>House Price Prediction</h1>
+    <form action="/predict" method="post">
+        <label for="area">Area:</label>
+        <select name="area" id="area">
+            {% for value in area %}
+                <option value="{{ value }}">{{ value }}</option>
+            {% endfor %}
+        </select><br>
+
+        <label for="bedrooms">Bedrooms:</label>
+        <select name="bedrooms" id="bedrooms">
+            {% for value in bedrooms %}
+                <option value="{{ value }}">{{ value }}</option>
+            {% endfor %}
+        </select><br>
+
+        <label for="bathrooms">Bathrooms:</label>
+        <select name="bathrooms" id="bathrooms">
+            {% for value in bathrooms %}
+                <option value="{{ value }}">{{ value }}</option>
+            {% endfor %}
+        </select><br>
+
+        <label for="stories">Stories:</label>
+        <select name="stories" id="stories">
+            {% for value in stories %}
+                <option value="{{ value }}">{{ value }}</option>
+            {% endfor %}
+        </select><br>
+
+        <label for="mainroad">Main Road:</label>
+        <select name="mainroad" id="mainroad">
+            {% for value in mainroad %}
+                <option value="{{ value }}">{{ value }}</option>
+            {% endfor %}
+        </select><br>
+
+        <label for="guestroom">Guest Room:</label>
+        <select name="guestroom" id="guestroom">
+            {% for value in guestroom %}
+                <option value="{{ value }}">{{ value }}</option>
+            {% endfor %}
+        </select><br>
+
+        <label for="basement">Basement:</label>
+        <select name="basement" id="basement">
+            {% for value in basement %}
+                <option value="{{ value }}">{{ value }}</option>
+            {% endfor %}
+        </select><br>
+
+        <label for="hotwaterheating">Hot Water Heating:</label>
+        <select name="hotwaterheating" id="hotwaterheating">
+            {% for value in hotwaterheating %}
+                <option value="{{ value }}">{{ value }}</option>
+            {% endfor %}
+        </select><br>
+
+        <label for="airconditioning">Air Conditioning:</label>
+        <select name="airconditioning" id="airconditioning">
+            {% for value in airconditioning %}
+                <option value="{{ value }}">{{ value }}</option>
+            {% endfor %}
+        </select><br>
+
+        <!-- Input field for parking -->
+        <label for="parking">Parking:</label>
+        <select name="parking" id="parking">
+            {% for value in parking %}
+                <option value="{{ value }}">{{ value }}</option>
+            {% endfor %}
+        </select><br>
+
+        <!-- Dropdown for preferred area -->
+        <label for="prefarea">Preferred Area:</label>
+        <select name="prefarea" id="prefarea">
+            {% for value in prefarea %}
+                <option value="{{ value }}">{{ value }}</option>
+            {% endfor %}
+        </select><br>
+
+        <label for="furnishingstatus">Furnishing Status:</label>
+        <select name="furnishingstatus" id="furnishingstatus">
+            {% for value in furnishingstatus %}
+                <option value="{{ value }}">{{ value }}</option>
+            {% endfor %}
+        </select><br>
+
+        <input type="submit" value="Predict">
+    </form>
+    {% if prediction_result %}
+        <div class="prediction-result">
+            <h2>Prediction Result</h2>
+            <p>{{ prediction_result }}</p>
+        </div>
+    {% endif %}
+</body>
+</html>
